@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
 import { ForceGraphMethods } from "react-force-graph-3d";
+// import {ReactDOMServer} from 'react-dom/server'
 // import Head from 'next/head'
 // import Image from 'next/image'
 // import styles from '../styles/Home.module.css'
@@ -21,7 +22,7 @@ function genRandomTree(N = 300, reverse = false) {
 }
 
 const Home: NextPage = () => {
-  let data = genRandomTree(100, false);
+  let data = genRandomTree(500, false);
   const forceG = useRef<ForceGraphMethods>();
 
   // if (forceG.current) {
@@ -32,7 +33,7 @@ const Home: NextPage = () => {
       className=""
       style={{
         height: "100vh",
-        width: "90vw",
+        width: "100vw",
       }}
     >
       <ForceGraph3D
@@ -45,7 +46,7 @@ const Home: NextPage = () => {
         }}
         nodeRelSize={12}
         nodeLabel={(node) => {
-          return `<div style="width:20px; height: 20px; background-color: green;">${node.id}</div>`;
+          return `<div style="padding: 0.5em; border-radius: 5px; background-color: green;">${node.id}</div>`;
         }}
         // nodeAutoColorBy={(node) => {
         //   return node.id && +node.id % 2 === 0 ? "#343454" : "#ff0";
@@ -75,17 +76,6 @@ const Home: NextPage = () => {
           console.log(node.x);
           node.fx = node.x;
           node.fy = node.y;
-          // node.vx = 0.1
-          // node.vy = 0.1
-          // if (node.vx && node.vy) {
-          //   if (x > 0) node.vx -= x;
-          //   if (y > 0) node.vx += y;
-          //   if (x < 0) node.vx += x;
-          //   if (x < y) node.vx -= y;
-            // node.fx += x;
-            // node.fy += y;
-          // }
-          // console.log(node.fx, node.fy);
         }}
         graphData={data}
       />
