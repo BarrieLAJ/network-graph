@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MonimeLogo from "../src/common/MonimeLogo";
 import { Input, Space, Typography, Select, Divider, Button } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
+import Layout from '../src/common/Layout'
 // import Head from 'next/head'
 const { Option } = Select;
 const { Title, Link, Text } = Typography;
@@ -49,12 +50,7 @@ const Home: NextPage = () => {
     </Select>
   );
   return (
-    <Wrapper>
-      <PageWrapper>
-        <HeaderWrapper>
-          <MonimeLogo />
-        </HeaderWrapper>
-        <MainContent>
+    <Layout navbg="#ffffff">
           <Space direction="vertical" size="large">
             <Title level={3} style={{ textAlign: "center" }}>
               Log in to your Monime <br /> account, wherever you are
@@ -90,9 +86,7 @@ const Home: NextPage = () => {
               Don&lsquo;t have an account?
             </Link>
           </Space>
-        </MainContent>
-      </PageWrapper>
-    </Wrapper>
+        </Layout>
   );
 };
 
