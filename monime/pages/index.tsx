@@ -1,42 +1,13 @@
 import type { NextPage } from "next";
-import styled from "styled-components";
-import MonimeLogo from "../src/common/MonimeLogo";
-import { Input, Space, Typography, Select, Divider, Button } from "antd";
+
+import { Input, Space, Typography, Select, Row, Col } from "antd";
 import { ArrowRightOutlined } from "@ant-design/icons";
-import Layout from '../src/common/Layout'
-// import Head from 'next/head'
+import Layout from "../src/common/Layout";
+import AppButton from "../src/common/AppButton";
 const { Option } = Select;
-const { Title, Link, Text } = Typography;
+const { Title, Link } = Typography;
 
-const Wrapper = styled.div`
-  width: 100%;
-  height: 100vh;
-  margin: 0 auto;
-`;
-const PageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  margin: 0 3em;
-`;
-
-const HeaderWrapper = styled.div`
-  padding: 2em;
-  width: 100%;
-`;
-const MainContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  /* max-width: max-content; */
-`;
-const Spacer = styled.div`
-  display: block;
-  width: 100%;
-  height: 20px;
-`;
+import { Spacer } from "../src/common/Spacer";
 
 const Home: NextPage = () => {
   const selectCountryCode = (
@@ -44,49 +15,47 @@ const Home: NextPage = () => {
       defaultValue="SL"
       style={{
         borderRight: "none",
+        borderRadius: "20px",
       }}
     >
       <Option value="SL">+232</Option>
     </Select>
   );
   return (
-    <Layout navbg="#ffffff">
+    <Layout navTextOnly={false} navbg="#ffffff" footered={false}>
+      <Row>
+        <Col span={12} offset={10}>
           <Space direction="vertical" size="large">
             <Title level={3} style={{ textAlign: "center" }}>
               Log in to your Monime <br /> account, wherever you are
             </Title>
-            <Spacer />
+            <Spacer size={2} />
             <Input
               style={{ borderLeft: "none", borderRadius: "100px" }}
               size="large"
               type="tel"
               placeholder="Mobile Number"
               addonBefore={selectCountryCode}
-              formNoValidate
             />
-            <Spacer />
-            <Spacer />
-            <Button
-              // icon={<ArrowRightOutlined />}
+            <Spacer size={3} />
+            <AppButton
+              rightIcon={<ArrowRightOutlined style={{ marginTop: "5px" }} />}
               block
               size="large"
               type="primary"
               style={{
                 borderRadius: "20px",
-                display: "flex",
-                justifyContent: "end",
-                alignItems: "center",
-                gap: 90,
               }}
             >
-              <Text style={{color: "white"}}>Next</Text>
-              <ArrowRightOutlined style={{ marginTop: "5px" }} />
-            </Button>
+              Next
+            </AppButton>
             <Link style={{ textAlign: "center", display: "block" }}>
               Don&lsquo;t have an account?
             </Link>
           </Space>
-        </Layout>
+        </Col>
+      </Row>
+    </Layout>
   );
 };
 

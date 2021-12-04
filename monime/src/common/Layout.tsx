@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 import MonimeLogo from "./MonimeLogo";
+import { Row, Col } from "antd";
+import { Navbar } from "./Navbar";
+import { NormalLogo } from "./NormalLogo";
+import { Footer } from "./Footer";
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  /* margin: 0 auto; */
 `;
 const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
-  /* padding: 0 3em; */
 `;
 
 interface HeaderProps {
@@ -19,23 +21,25 @@ interface HeaderProps {
 }
 
 const HeaderWrapper = styled.div<HeaderProps>((props) => ({
-  padding: "2em 5em 3em 5em",
   width: "100%",
   backgroundColor: props.bgColor,
 }));
 
-const MainContent = styled.div`
+const HeaderinnerWrapper = styled.div`
+  padding: 1em 5em 3em 5em;
+  width: 95%;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin: 0 auto;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
-  /* max-width: max-content; */
 `;
 
 const Layout = (props: {
   logoColor?: string;
   navbg?: string;
+  navbar?: boolean;
+  navTextOnly: boolean;
+  footered: boolean;
   children:
     | boolean
     | React.ReactChild
@@ -47,10 +51,22 @@ const Layout = (props: {
   return (
     <Wrapper>
       <PageWrapper>
-        <HeaderWrapper bgColor={props.navbg}>
-          <MonimeLogo fillColor={props.logoColor} />
-        </HeaderWrapper>
-        <MainContent>{props.children}</MainContent>
+        <Row>
+          <HeaderWrapper bgColor={props.navbg}>
+            <HeaderinnerWrapper>
+              {!props.navTextOnly ? (
+                <MonimeLogo fillColor={props.logoColor} />
+              ) : (
+                <NormalLogo />
+              )}
+              {props.navbar && <Navbar />}
+            </HeaderinnerWrapper>
+          </HeaderWrapper>
+        </Row>
+        <Row>
+          <Col span={24}>{props.children}</Col>
+        </Row>
+        {props.footered && <Footer />}
       </PageWrapper>
     </Wrapper>
   );

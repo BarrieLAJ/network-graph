@@ -1,7 +1,8 @@
 import { NextPage } from "next";
 import styled from "styled-components";
 import Layout from "../src/common/Layout";
-import { Typography } from "antd";
+import { Spacer } from "../src/common/Spacer";
+import { Typography, Row, Col } from "antd";
 
 const { Title, Link } = Typography;
 
@@ -10,7 +11,7 @@ const Content = styled.div`
   justify-content: space-between;
   top: -47px;
   background-color: white;
-  width: 75%;
+  flex-wrap: wrap;
   margin: -54px 2em;
   padding: 2.8em 4.5em;
 `;
@@ -27,42 +28,47 @@ const RightContent = styled.div`
   justify-self: center;
   flex-grow: 0;
 `;
-const Spacer = styled.div`
-  display: block;
-  width: 100%;
-  height: 20px;
-`;
-
 const OrderedList = styled.ol`
   font-size: medium;
   font-weight: 400;
   margin-left: -1em;
-  li{
+  li {
     margin-top: 0.4em;
-    margin-bottom: 0.4em ;
+    margin-bottom: 0.4em;
   }
 `;
 
 const QrLogin: NextPage = () => {
   return (
-    <Layout logoColor="#ffffff" navbg="#388DFF">
-      <Content>
-        <LeftContent>
-          <Title level={3}>To use Monime on your computer:</Title>
-          <Spacer />
-          <OrderedList>
-            <li>Open Monime on your phone</li>
-            <li>Tap Setings and select Linked Devices</li>
-            <li>Point your phone to this screen and the capture the code</li>
-          </OrderedList>
-          <Spacer />
-          <Spacer />
-          <Link  strong>Need help to get started?</Link>
-        </LeftContent>
-        <RightContent>
-          <img src="./qr-code.png" height="250px" width="260px" />
-        </RightContent>
-      </Content>
+    <Layout
+      navTextOnly={false}
+      logoColor="#ffffff"
+      navbg="#388DFF"
+      footered={false}
+    >
+      <Row>
+        <Col span={19} offset={3}>
+          {" "}
+          <Content>
+            <LeftContent>
+              <Title level={3}>To use Monime on your computer:</Title>
+              <Spacer size={2} />
+              <OrderedList>
+                <li>Open Monime on your phone</li>
+                <li>Tap Setings and select Linked Devices</li>
+                <li>
+                  Point your phone to this screen and the capture the code
+                </li>
+              </OrderedList>
+              <Spacer size={3} />
+              <Link strong>Need help to get started?</Link>
+            </LeftContent>
+            <RightContent>
+              <img src="./qr-code.png" height="248px" width="100%" />
+            </RightContent>
+          </Content>
+        </Col>
+      </Row>
     </Layout>
   );
 };
