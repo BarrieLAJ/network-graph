@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 } */
+
+
+.ant-input-group-wrapper .ant-input-group .ant-input:focus {
+  box-shadow: none;
+}

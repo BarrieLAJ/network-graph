@@ -8,14 +8,15 @@ const { Option } = Select;
 const { Title, Link } = Typography;
 
 import { Spacer } from "../src/common/Spacer";
+import { MultiInput } from "../src/common/MultiInput";
 
 const Home: NextPage = () => {
   const selectCountryCode = (
     <Select
       defaultValue="SL"
       style={{
-        borderRight: "none",
         borderRadius: "20px",
+        backgroundColor: "#fff",
       }}
     >
       <Option value="SL">+232</Option>
@@ -30,8 +31,7 @@ const Home: NextPage = () => {
               Log in to your Monime <br /> account, wherever you are
             </Title>
             <Spacer size={2} />
-            <Input
-              style={{ borderLeft: "none", borderRadius: "100px" }}
+            <MultiInput
               size="large"
               type="tel"
               placeholder="Mobile Number"

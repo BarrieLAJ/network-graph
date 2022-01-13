@@ -14,6 +14,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
+  /* position: relative; */
 `;
 
 interface HeaderProps {

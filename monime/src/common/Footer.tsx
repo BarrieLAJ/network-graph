@@ -25,75 +25,80 @@ const SocialIconsUl = styled.ul`
 
 export const Footer = () => {
   return (
-    <Row>
-      <FooterWrapper>
-        <Row justify="space-between">
-          <Col>
-            <Space size={40}>
-              <NormalLogo />
-              <Link
-                style={{
-                  color: "#000",
-                  marginTop: "-0.4em",
-                  display: "inline-block",
-                }}
-                href="#"
-              >
-                Disclaimer
-              </Link>
-              <Link
-                style={{
-                  color: "#000",
-                  marginTop: "-0.4em",
-                  display: "inline-block",
-                }}
-                href="#"
-              >
-                Cookies
-              </Link>
+    // <Row>
+    <FooterWrapper>
+      <Row justify="space-between">
+        <Col>
+          <Space size={40}>
+            <NormalLogo />
+            <Link
+              style={{
+                color: "#000",
+                marginTop: "-0.4em",
+                display: "inline-block",
+              }}
+              href="#"
+            >
+              Disclaimer
+            </Link>
+            <Link
+              style={{
+                color: "#000",
+                marginTop: "-0.4em",
+                display: "inline-block",
+              }}
+              href="#"
+            >
+              Cookies
+            </Link>
+          </Space>
+        </Col>
+        <Col>
+          <SocialIconsUl>
+            <Space size="small">
+              <li>
+                <FacebookFilled
+                  href="https://www.facebook.com/monime.net"
+                  size={40}
+                  style={{ color: "#AAAFB6", fontSize: "20px" }}
+                />
+              </li>
+              <li>
+                <TwitterOutlined
+                  href="https://twitter.com/monime_net"
+                  style={{ color: "#AAAFB6", fontSize: "20px" }}
+                />
+              </li>
+              <li>
+                <YoutubeFilled
+                  href="https://youtube.com/monime"
+                  style={{ color: "#AAAFB6", fontSize: "20px" }}
+                />
+              </li>
+              <li>
+                <LinkedinFilled
+                  href="https://www.linkedin.com/company/monime"
+                  style={{ color: "#AAAFB6", fontSize: "20px" }}
+                />
+              </li>
+              <li>
+                <InstagramFilled
+                  href="https://www.instagram.com/monime.net"
+                  style={{ color: "#AAAFB6", fontSize: "20px" }}
+                />
+              </li>
             </Space>
-          </Col>
-          <Col>
-            <SocialIconsUl>
-              <Space size="small">
-                <li>
-                  <FacebookFilled
-                    size={40}
-                    style={{ color: "#AAAFB6", fontSize: "20px" }}
-                  />
-                </li>
-                <li>
-                  <TwitterOutlined
-                    style={{ color: "#AAAFB6", fontSize: "20px" }}
-                  />
-                </li>
-                <li>
-                  <YoutubeFilled
-                    style={{ color: "#AAAFB6", fontSize: "20px" }}
-                  />
-                </li>
-                <li>
-                  <LinkedinFilled
-                    style={{ color: "#AAAFB6", fontSize: "20px" }}
-                  />
-                </li>
-                <li>
-                  <InstagramFilled
-                    style={{ color: "#AAAFB6", fontSize: "20px" }}
-                  />
-                </li>
-              </Space>
-            </SocialIconsUl>
-          </Col>
-        </Row>
-        <Divider />
-        <Row>
-          <Text style={{ color: "#aaafb6" }}>
-            &copy;2021 Monime Limited, All rights reserved.
-          </Text>
-          <Spacer size={2} />
-        </Row>
-      </FooterWrapper>
-    </Row>
+          </SocialIconsUl>
+        </Col>
+      </Row>
+      <Divider style={{ margin: "16px 0" }} />
+      <Row>
+        <Text style={{ color: "#aaafb6" }}>
+          &copy;2021 Monime Limited, All rights reserved.
+        </Text>
+        <Spacer size={0.1} />
+      </Row>
+    </FooterWrapper>
+    // </Row>
   );
 };
